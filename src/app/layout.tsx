@@ -1,0 +1,99 @@
+import type { Metadata } from 'next'
+import { Outfit, DM_Sans, JetBrains_Mono } from 'next/font/google'
+import './globals.css'
+
+const outfit = Outfit({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-outfit',
+  weight: ['400', '500', '600', '700'],
+})
+
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-dm-sans',
+  weight: ['400', '500', '600'],
+})
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-jetbrains-mono',
+  weight: ['400', '500'],
+})
+
+export const metadata: Metadata = {
+  metadataBase: new URL('https://tatawur.ai'),
+  title: {
+    default: 'Tatawur AI | Evolving Construction Through Intelligent Automation',
+    template: '%s | Tatawur AI',
+  },
+  description: 'Expert consulting services bridging traditional AEC workflows with cutting-edge software and AI solutions. Transform your construction business with Tatawur AI.',
+  keywords: [
+    'AEC consulting',
+    'construction technology',
+    'AI automation',
+    'software consulting',
+    'construction AI',
+    'BIM integration',
+    'digital transformation',
+    'construction robotics',
+    'structural engineering',
+    'construction software',
+  ],
+  authors: [{ name: 'Tatawur AI LLC' }],
+  creator: 'Tatawur AI LLC',
+  publisher: 'Tatawur AI LLC',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://tatawur.ai',
+    siteName: 'Tatawur AI',
+    title: 'Tatawur AI | Evolving Construction Through Intelligent Automation',
+    description: 'Expert consulting services bridging traditional AEC workflows with cutting-edge software and AI solutions.',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Tatawur AI - Evolving Construction',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Tatawur AI | Evolving Construction Through Intelligent Automation',
+    description: 'Expert consulting services bridging traditional AEC workflows with cutting-edge software and AI solutions.',
+    images: ['/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'your-google-verification-code',
+  },
+}
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="en" className={`${outfit.variable} ${dmSans.variable} ${jetbrainsMono.variable}`}>
+      <body>
+        {children}
+      </body>
+    </html>
+  )
+}
+
