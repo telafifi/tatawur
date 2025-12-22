@@ -68,7 +68,7 @@
 .header {
   text-align: center;
   max-width: 768px;
-  margin: 0 auto $spacing-16;
+  margin: 0 auto $spacing-12;
 }
 
 .badge {
@@ -95,220 +95,140 @@
   line-height: $leading-relaxed;
 }
 
-.contentGrid {
-  display: grid;
-  gap: $spacing-12;
-}
-
-.formCard {
-  background: white;
-  padding: $spacing-8;
-  border-radius: $border-radius-3xl;
-  box-shadow: $shadow-xl;
-  border: 1px solid rgba($neutral-light, 0.5);
-
-  @include md {
-    padding: $spacing-10;
-  }
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: $spacing-6;
-}
-
-.formRow {
-  display: grid;
-  gap: $spacing-6;
-
-  @include md {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-.formGroup {
-  display: flex;
-  flex-direction: column;
-}
-
-.label {
-  display: block;
-  font-size: $text-sm;
-  font-weight: 500;
-  color: $neutral-dark;
-  margin-bottom: $spacing-2;
-
-  .required {
-    color: $red-500;
-  }
-}
-
-.input,
-.select,
-.textarea {
-  @include input-base;
-}
-
-.select {
-  appearance: none;
-  cursor: pointer;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%232B2D42' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 12px center;
-  background-size: 16px;
-  padding-right: $spacing-10;
-}
-
-.textarea {
-  resize: none;
-  min-height: 120px;
-}
-
-.submitButton {
-  @include button-primary;
-  width: 100%;
-  padding: $spacing-4 $spacing-8;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: $spacing-2;
-  border-radius: $border-radius-xl;
-}
-
-.formNote {
-  font-size: $text-xs;
-  text-align: center;
-  color: rgba($neutral-dark, 0.5);
-  margin-top: $spacing-4;
-}
-
-.sidebar {
+.contactContent {
+  max-width: 600px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: $spacing-8;
 }
 
-.infoCard {
-  background: white;
-  padding: $spacing-8;
-  border-radius: $border-radius-3xl;
-  box-shadow: $shadow-lg;
-  border: 1px solid rgba($neutral-light, 0.5);
+.emailSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-4;
 }
 
-.infoTitle {
+.emailIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: $border-radius-xl;
+  background: linear-gradient(135deg, $primary, $primary-600);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  svg {
+    color: white;
+  }
+}
+
+.emailInfo {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-1;
+}
+
+.emailLabel {
+  font-size: $text-sm;
+  color: rgba($neutral-dark, 0.6);
+}
+
+.emailAddress {
   font-size: $text-xl;
+  font-weight: 600;
+  color: $neutral-dark;
+  font-family: $font-heading;
+  user-select: all;
+
+  @include md {
+    font-size: $text-2xl;
+  }
+}
+
+.includeSection {
+  background: rgba($primary, 0.03);
+  border-radius: $border-radius-2xl;
+  padding: $spacing-6;
+  border: 1px solid rgba($primary, 0.08);
+}
+
+.includeTitle {
+  font-size: $text-lg;
   font-family: $font-heading;
   font-weight: 600;
   color: $neutral-dark;
-  margin-bottom: $spacing-6;
+  margin-bottom: $spacing-4;
 }
 
-.contactLinks {
+.includeList {
+  list-style: none;
   display: flex;
   flex-direction: column;
-  gap: $spacing-5;
-}
+  gap: $spacing-3;
 
-.contactLink {
-  display: flex;
-  align-items: center;
-  gap: $spacing-4;
-  padding: $spacing-4;
-  border-radius: $border-radius-xl;
-  background: rgba($background-off, 0.5);
-  transition: background $transition-normal $transition-ease;
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: $spacing-3;
+    color: rgba($neutral-dark, 0.7);
+    font-size: $text-base;
+    line-height: $leading-relaxed;
 
-  &:hover {
-    background: rgba($secondary, 0.1);
-
-    .contactText .value {
-      color: $secondary;
+    &::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: $secondary;
+      margin-top: 10px;
+      flex-shrink: 0;
     }
   }
 }
 
-.contactIcon {
-  width: 48px;
-  height: 48px;
-  border-radius: $border-radius-xl;
-  display: flex;
+.connectSection {
+  text-align: center;
+  padding-top: $spacing-4;
+}
+
+.connectText {
+  color: rgba($neutral-dark, 0.6);
+  font-size: $text-sm;
+  margin-bottom: $spacing-3;
+}
+
+.linkedinLink {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  box-shadow: $shadow-md;
-
-  svg {
-    color: white;
-  }
-
-  &.secondary {
-    background: linear-gradient(to bottom right, $secondary, $secondary-600);
-  }
-
-  &.primary {
-    background: linear-gradient(to bottom right, $primary, $primary-600);
-  }
-}
-
-.contactText {
-  .label {
-    font-size: $text-sm;
-    color: rgba($neutral-dark, 0.6);
-    margin-bottom: 0;
-  }
-
-  .value {
-    font-weight: 500;
-    color: $neutral-dark;
-    transition: color $transition-normal $transition-ease;
-  }
-}
-
-.socialLinks {
-  display: flex;
-  gap: $spacing-4;
-}
-
-.socialLink {
-  width: 56px;
-  height: 56px;
-  border-radius: $border-radius-xl;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: $shadow-lg;
+  gap: $spacing-2;
+  padding: $spacing-3 $spacing-5;
+  background: white;
+  border-radius: $border-radius-full;
+  border: 1px solid rgba($neutral-light, 0.5);
+  color: $neutral-dark;
+  font-weight: 500;
   transition: all $transition-normal $transition-ease;
 
   svg {
-    color: white;
-  }
-
-  &.linkedin {
-    background: linear-gradient(to bottom right, #0077b5, #005885);
+    color: #0077b5;
   }
 
   &:hover {
-    box-shadow: $shadow-xl;
-    transform: scale(1.05);
+    border-color: #0077b5;
+    background: rgba(#0077b5, 0.05);
   }
 }
 
-.responseCard {
-  padding: $spacing-6;
-  background: linear-gradient(
-    to bottom right,
-    rgba($accent, 0.1),
-    rgba($accent, 0.05)
-  );
-  border-radius: $border-radius-2xl;
-  border: 1px solid rgba($accent, 0.2);
-}
-
-.responseInner {
+.responseNote {
   display: flex;
-  align-items: flex-start;
-  gap: $spacing-3;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-2;
+  color: rgba($neutral-dark, 0.6);
+  font-size: $text-sm;
 }
 
 .responseDot {
@@ -316,7 +236,6 @@
   height: 8px;
   border-radius: 50%;
   background: $green-500;
-  margin-top: 8px;
   animation: pulse 2s infinite;
 }
 
@@ -327,18 +246,5 @@
   }
   50% {
     opacity: 0.5;
-  }
-}
-
-.responseText {
-  .responseTitle {
-    font-weight: 500;
-    color: $neutral-dark;
-    margin-bottom: $spacing-1;
-  }
-
-  .responseDesc {
-    font-size: $text-sm;
-    color: rgba($neutral-dark, 0.7);
   }
 }
