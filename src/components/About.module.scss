@@ -1,0 +1,193 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.section {
+  position: relative;
+  padding: $spacing-24 0;
+  background: $background-off;
+  overflow: hidden;
+  
+  @include md {
+    padding: $spacing-32 0;
+  }
+}
+
+.backgroundAccent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 500px;
+  height: 500px;
+  background: linear-gradient(to bottom left, rgba($secondary, 0.05), transparent);
+  border-radius: 50%;
+  filter: blur(48px);
+}
+
+.container {
+  @include container;
+  padding: 0 $spacing-4;
+  position: relative;
+  
+  @include sm {
+    padding: 0 $spacing-6;
+  }
+  
+  @include lg {
+    padding: 0 $spacing-8;
+  }
+}
+
+.header {
+  margin-bottom: $spacing-10;
+}
+
+.label {
+  display: inline-block;
+  color: $secondary;
+  font-weight: 500;
+  font-size: $text-sm;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: $spacing-1;
+}
+
+.title {
+  color: $neutral-dark;
+}
+
+.leadSection {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-8;
+  margin-bottom: $spacing-12;
+  
+  @include md {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.leadText {
+  font-size: $text-xl;
+  color: $neutral-dark;
+  font-weight: 500;
+  line-height: $leading-relaxed;
+  flex: 1;
+  
+  @include md {
+    font-size: $text-2xl;
+  }
+}
+
+.highlight {
+  &Primary {
+    color: $primary;
+  }
+  
+  &Secondary {
+    color: $secondary;
+  }
+  
+  &Accent {
+    color: $accent;
+  }
+}
+
+.photoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.photo {
+  position: relative;
+  width: 128px;
+  height: 128px;
+  border-radius: $border-radius-2xl;
+  overflow: hidden;
+  box-shadow: $shadow-lg;
+  
+  @include md {
+    width: 144px;
+    height: 144px;
+  }
+}
+
+.photoImage {
+  object-fit: cover;
+  object-position: top;
+}
+
+.columns {
+  display: grid;
+  gap: $spacing-12;
+  
+  @include lg {
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-16;
+  }
+}
+
+.bioContent {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-6;
+  max-width: 65ch;
+}
+
+.bioText {
+  color: rgba($neutral-dark, 0.8);
+  line-height: 1.75;
+}
+
+.expertiseColumn {
+  // Column container
+}
+
+.expertiseLabel {
+  font-size: $text-sm;
+  color: rgba($neutral-dark, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  margin-bottom: $spacing-4;
+}
+
+.expertiseGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-3;
+}
+
+.expertiseCard {
+  display: flex;
+  align-items: center;
+  gap: $spacing-3;
+  padding: $spacing-3;
+  background: white;
+  border-radius: $border-radius-xl;
+  border: 1px solid rgba($neutral-light, 0.3);
+  transition: border-color $transition-normal $transition-ease;
+  
+  &:hover {
+    border-color: rgba($secondary, 0.3);
+    
+    .expertiseIcon {
+      color: $neutral-dark;
+    }
+  }
+}
+
+.expertiseIcon {
+  color: $secondary;
+  flex-shrink: 0;
+  transition: color $transition-normal $transition-ease;
+}
+
+.expertiseText {
+  font-size: $text-sm;
+  color: rgba($neutral-dark, 0.8);
+  transition: color $transition-normal $transition-ease;
+}
+

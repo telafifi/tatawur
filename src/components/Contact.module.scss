@@ -1,0 +1,331 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.section {
+  position: relative;
+  padding: $spacing-24 0;
+  background: linear-gradient(to bottom, $background-off, rgba($primary, 0.05));
+  overflow: hidden;
+  
+  @include md {
+    padding: $spacing-32 0;
+  }
+}
+
+.backgroundDecoration {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  
+  .glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 800px;
+    background: linear-gradient(to right, rgba($secondary, 0.1), transparent, rgba($accent, 0.1));
+    border-radius: 50%;
+    filter: blur(48px);
+  }
+  
+  .dots {
+    position: absolute;
+    inset: 0;
+    opacity: 0.02;
+    background-image: radial-gradient(circle at 1px 1px, $primary 1px, transparent 0);
+    background-size: 32px 32px;
+  }
+}
+
+.container {
+  @include container;
+  padding: 0 $spacing-4;
+  position: relative;
+  
+  @include sm {
+    padding: 0 $spacing-6;
+  }
+  
+  @include lg {
+    padding: 0 $spacing-8;
+  }
+}
+
+.header {
+  text-align: center;
+  max-width: 768px;
+  margin: 0 auto $spacing-16;
+}
+
+.badge {
+  display: inline-block;
+  padding: $spacing-1 $spacing-4;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  background: rgba($secondary, 0.1);
+  color: $secondary-700;
+  border-radius: $border-radius-full;
+  font-size: $text-sm;
+  font-weight: 500;
+  margin-bottom: $spacing-6;
+}
+
+.title {
+  color: $neutral-dark;
+  margin-bottom: $spacing-6;
+}
+
+.description {
+  color: rgba($neutral-dark, 0.7);
+  font-size: $text-lg;
+  line-height: $leading-relaxed;
+}
+
+.contentGrid {
+  display: grid;
+  gap: $spacing-12;
+  
+  @include lg {
+    grid-template-columns: 3fr 2fr;
+  }
+}
+
+.formCard {
+  background: white;
+  padding: $spacing-8;
+  border-radius: $border-radius-3xl;
+  box-shadow: $shadow-xl;
+  border: 1px solid rgba($neutral-light, 0.5);
+  
+  @include md {
+    padding: $spacing-10;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-6;
+}
+
+.formRow {
+  display: grid;
+  gap: $spacing-6;
+  
+  @include md {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  display: block;
+  font-size: $text-sm;
+  font-weight: 500;
+  color: $neutral-dark;
+  margin-bottom: $spacing-2;
+  
+  .required {
+    color: $red-500;
+  }
+}
+
+.input,
+.select,
+.textarea {
+  @include input-base;
+}
+
+.select {
+  appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%232B2D42' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  padding-right: $spacing-10;
+}
+
+.textarea {
+  resize: none;
+  min-height: 120px;
+}
+
+.submitButton {
+  @include button-primary;
+  width: 100%;
+  padding: $spacing-4 $spacing-8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-2;
+  border-radius: $border-radius-xl;
+}
+
+.formNote {
+  font-size: $text-xs;
+  text-align: center;
+  color: rgba($neutral-dark, 0.5);
+  margin-top: $spacing-4;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-8;
+}
+
+.infoCard {
+  background: white;
+  padding: $spacing-8;
+  border-radius: $border-radius-3xl;
+  box-shadow: $shadow-lg;
+  border: 1px solid rgba($neutral-light, 0.5);
+}
+
+.infoTitle {
+  font-size: $text-xl;
+  font-family: $font-heading;
+  font-weight: 600;
+  color: $neutral-dark;
+  margin-bottom: $spacing-6;
+}
+
+.contactLinks {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-5;
+}
+
+.contactLink {
+  display: flex;
+  align-items: center;
+  gap: $spacing-4;
+  padding: $spacing-4;
+  border-radius: $border-radius-xl;
+  background: rgba($background-off, 0.5);
+  transition: background $transition-normal $transition-ease;
+  
+  &:hover {
+    background: rgba($secondary, 0.1);
+    
+    .contactText .value {
+      color: $secondary;
+    }
+  }
+}
+
+.contactIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: $border-radius-xl;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: $shadow-md;
+  
+  svg {
+    color: white;
+  }
+  
+  &.secondary {
+    background: linear-gradient(to bottom right, $secondary, $secondary-600);
+  }
+  
+  &.primary {
+    background: linear-gradient(to bottom right, $primary, $primary-600);
+  }
+}
+
+.contactText {
+  .label {
+    font-size: $text-sm;
+    color: rgba($neutral-dark, 0.6);
+    margin-bottom: 0;
+  }
+  
+  .value {
+    font-weight: 500;
+    color: $neutral-dark;
+    transition: color $transition-normal $transition-ease;
+  }
+}
+
+.socialLinks {
+  display: flex;
+  gap: $spacing-4;
+}
+
+.socialLink {
+  width: 56px;
+  height: 56px;
+  border-radius: $border-radius-xl;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: $shadow-lg;
+  transition: all $transition-normal $transition-ease;
+  
+  svg {
+    color: white;
+  }
+  
+  &.linkedin {
+    background: linear-gradient(to bottom right, #0077B5, #005885);
+  }
+  
+  &:hover {
+    box-shadow: $shadow-xl;
+    transform: scale(1.05);
+  }
+}
+
+.responseCard {
+  padding: $spacing-6;
+  background: linear-gradient(to bottom right, rgba($accent, 0.1), rgba($accent, 0.05));
+  border-radius: $border-radius-2xl;
+  border: 1px solid rgba($accent, 0.2);
+}
+
+.responseInner {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-3;
+}
+
+.responseDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: $green-500;
+  margin-top: 8px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.responseText {
+  .responseTitle {
+    font-weight: 500;
+    color: $neutral-dark;
+    margin-bottom: $spacing-1;
+  }
+  
+  .responseDesc {
+    font-size: $text-sm;
+    color: rgba($neutral-dark, 0.7);
+  }
+}
+

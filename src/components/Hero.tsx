@@ -1,110 +1,110 @@
-'use client'
+'use client';
 
-import { motion } from 'framer-motion'
-import { ArrowRight, Building2, Cpu, Boxes, Zap, Shield, Lightbulb } from 'lucide-react'
+import { motion } from 'framer-motion';
+import {
+  ArrowRight,
+  Building2,
+  Cpu,
+  Boxes,
+  Zap,
+  Shield,
+  Lightbulb,
+} from 'lucide-react';
+import styles from './Hero.module.scss';
 
 export function Hero() {
   const handleScroll = (href: string) => {
-    const element = document.querySelector(href)
+    const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+      element.scrollIntoView({ behavior: 'smooth' });
     }
-  }
+  };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
+    <section id="home" className={styles.section}>
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background-off via-white to-secondary/5" />
-      
+      <div className={styles.background} />
+
       {/* Geometric patterns */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className={styles.patterns}>
         {/* Grid pattern */}
-        <div 
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `
-              linear-gradient(to right, #0A2463 1px, transparent 1px),
-              linear-gradient(to bottom, #0A2463 1px, transparent 1px)
-            `,
-            backgroundSize: '60px 60px'
-          }}
-        />
-        
+        <div className={styles.grid} />
+
         {/* Floating shapes */}
         <motion.div
-          animate={{ 
+          animate={{
             y: [-20, 20, -20],
             rotate: [0, 5, 0],
           }}
-          transition={{ 
+          transition={{
             duration: 8,
             repeat: Infinity,
-            ease: 'easeInOut'
+            ease: 'easeInOut',
           }}
-          className="absolute top-1/4 right-1/4 w-72 h-72 bg-gradient-to-br from-secondary/20 to-secondary/5 rounded-full blur-3xl"
+          className={`${styles.floatingShape} ${styles.shape1}`}
         />
         <motion.div
-          animate={{ 
+          animate={{
             y: [20, -20, 20],
             rotate: [0, -5, 0],
           }}
-          transition={{ 
+          transition={{
             duration: 10,
             repeat: Infinity,
-            ease: 'easeInOut'
+            ease: 'easeInOut',
           }}
-          className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-accent/15 to-accent/5 rounded-full blur-3xl"
+          className={`${styles.floatingShape} ${styles.shape2}`}
         />
         <motion.div
-          animate={{ 
+          animate={{
             y: [-15, 15, -15],
           }}
-          transition={{ 
+          transition={{
             duration: 6,
             repeat: Infinity,
-            ease: 'easeInOut'
+            ease: 'easeInOut',
           }}
-          className="absolute top-1/3 left-1/3 w-64 h-64 bg-gradient-to-br from-primary/10 to-primary/5 rounded-full blur-3xl"
+          className={`${styles.floatingShape} ${styles.shape3}`}
         />
       </div>
 
       {/* Floating icons */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className={styles.floatingIcons}>
         <motion.div
           animate={{ y: [-10, 10, -10], rotate: [0, 10, 0] }}
           transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute top-32 right-[15%] text-secondary/30"
+          className={`${styles.floatingIcon} ${styles.icon1}`}
         >
           <Building2 size={48} strokeWidth={1} />
         </motion.div>
         <motion.div
           animate={{ y: [10, -10, 10], rotate: [0, -10, 0] }}
           transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute top-1/2 right-[10%] text-primary/20"
+          className={`${styles.floatingIcon} ${styles.icon2}`}
         >
           <Cpu size={64} strokeWidth={1} />
         </motion.div>
         <motion.div
           animate={{ y: [-15, 15, -15], rotate: [0, 15, 0] }}
           transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute bottom-32 right-[20%] text-accent/25"
+          className={`${styles.floatingIcon} ${styles.icon3}`}
         >
           <Boxes size={56} strokeWidth={1} />
         </motion.div>
       </div>
 
       {/* Content */}
-      <div className="relative container-width section-padding pt-32">
-        <div className="max-w-4xl">
+      <div className={styles.content}>
+        <div className={styles.contentInner}>
           {/* Tagline */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full border border-primary/10 mb-8"
+            className={styles.tagline}
           >
-            <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
-            <span className="text-sm font-medium text-primary/80">
+            <span className={styles.taglineDot} />
+            <span className={styles.taglineText}>
               AEC Digital Transformation Experts
             </span>
           </motion.div>
@@ -114,12 +114,12 @@ export function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-balance mb-6"
+            className={styles.headline}
           >
-            <span className="text-neutral-dark">Evolving Construction </span>
+            <span className={styles.dark}>Evolving Construction </span>
             <br />
-            <span className="text-neutral-dark">Through </span>
-            <span className="gradient-text">Intelligent Automation</span>
+            <span className={styles.dark}>Through </span>
+            <span className={styles.gradient}>Intelligent Automation</span>
           </motion.h1>
 
           {/* Subheadline */}
@@ -127,9 +127,9 @@ export function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg md:text-xl text-neutral-dark/70 max-w-2xl mb-10 leading-relaxed"
+            className={styles.subheadline}
           >
-            Expert consulting services bridging traditional AEC workflows with 
+            Expert consulting services bridging traditional AEC workflows with
             cutting-edge software and AI solutions
           </motion.p>
 
@@ -138,22 +138,22 @@ export function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-wrap gap-4"
+            className={styles.cta}
           >
             <motion.button
               onClick={() => handleScroll('#contact')}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="group px-8 py-4 bg-gradient-to-r from-primary to-primary-700 text-white rounded-full font-semibold shadow-xl shadow-primary/25 hover:shadow-2xl hover:shadow-primary/30 transition-all flex items-center gap-2"
+              className={styles.ctaPrimary}
             >
               Get Started
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              <ArrowRight size={18} className={styles.arrow} />
             </motion.button>
             <motion.button
               onClick={() => handleScroll('#services')}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="px-8 py-4 bg-white text-primary border-2 border-primary/20 rounded-full font-semibold hover:border-primary/40 hover:bg-primary/5 transition-all"
+              className={styles.ctaSecondary}
             >
               Learn More
             </motion.button>
@@ -164,30 +164,38 @@ export function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-16 pt-10 border-t border-neutral-light/50 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl"
+            className={styles.focusAreas}
           >
             {[
-              { icon: Zap, label: 'AI & Automation', desc: 'Intelligent workflows' },
-              { icon: Shield, label: 'Software Strategy', desc: 'Scalable solutions' },
-              { icon: Lightbulb, label: 'Innovation', desc: 'Future-ready tech' },
+              {
+                icon: Zap,
+                label: 'AI & Automation',
+                desc: 'Intelligent workflows',
+              },
+              {
+                icon: Shield,
+                label: 'Software Strategy',
+                desc: 'Scalable solutions',
+              },
+              {
+                icon: Lightbulb,
+                label: 'Innovation',
+                desc: 'Future-ready tech',
+              },
             ].map((item, index) => (
-              <motion.div 
-                key={index} 
+              <motion.div
+                key={index}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.6 + index * 0.1 }}
-                className="flex items-center gap-3 group"
+                className={styles.focusItem}
               >
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center group-hover:from-primary/20 group-hover:to-secondary/20 transition-all">
-                  <item.icon size={20} className="text-primary" />
+                <div className={styles.focusIcon}>
+                  <item.icon size={20} />
                 </div>
-                <div>
-                  <div className="font-medium text-neutral-dark text-sm">
-                    {item.label}
-                  </div>
-                  <div className="text-xs text-neutral-dark/50">
-                    {item.desc}
-                  </div>
+                <div className={styles.focusText}>
+                  <div className={styles.label}>{item.label}</div>
+                  <div className={styles.desc}>{item.desc}</div>
                 </div>
               </motion.div>
             ))}
@@ -200,16 +208,16 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        className={styles.scrollIndicator}
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-primary/30 rounded-full flex justify-center pt-2"
+          className={styles.scrollMouse}
         >
-          <motion.div className="w-1.5 h-1.5 bg-primary/50 rounded-full" />
+          <motion.div className={styles.scrollDot} />
         </motion.div>
       </motion.div>
     </section>
-  )
+  );
 }

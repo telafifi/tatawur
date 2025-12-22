@@ -1,0 +1,122 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// ============================================
+// RESET & BASE
+// ============================================
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  background: $background-white;
+  color: $neutral-dark;
+  font-family: $font-body;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// ============================================
+// TYPOGRAPHY
+// ============================================
+
+h1, h2, h3, h4, h5, h6 {
+  @include heading-base;
+}
+
+h1 {
+  @include h1;
+}
+
+h2 {
+  @include h2;
+}
+
+h3 {
+  @include h3;
+}
+
+h4 {
+  @include h4;
+}
+
+p {
+  @include body-text;
+}
+
+// ============================================
+// LINKS
+// ============================================
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+// ============================================
+// IMAGES
+// ============================================
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+// ============================================
+// BUTTONS
+// ============================================
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+// ============================================
+// CUSTOM SCROLLBAR
+// ============================================
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba($neutral-light, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba($primary, 0.3);
+  border-radius: $border-radius-full;
+  
+  &:hover {
+    background: rgba($primary, 0.5);
+  }
+}
+
+// ============================================
+// SELECTION
+// ============================================
+
+::selection {
+  background: rgba($secondary, 0.3);
+  color: $primary;
+}
+
+// ============================================
+// FOCUS STYLES
+// ============================================
+
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px $secondary, 0 0 0 4px white;
+}
+

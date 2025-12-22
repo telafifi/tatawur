@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Outfit, DM_Sans, JetBrains_Mono } from 'next/font/google'
-import './globals.css'
+import '@/styles/globals.scss'
 
 const outfit = Outfit({
   subsets: ['latin'],

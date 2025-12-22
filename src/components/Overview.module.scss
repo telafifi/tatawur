@@ -1,0 +1,209 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.section {
+  position: relative;
+  padding: $spacing-24 0;
+  overflow: hidden;
+  background: linear-gradient(to bottom, white, $background-off);
+  
+  @include md {
+    padding: $spacing-32 0;
+  }
+}
+
+.backgroundDecoration {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  
+  .glow {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 400px;
+    background: linear-gradient(to bottom, rgba($primary, 0.05), transparent);
+    border-radius: 50%;
+    filter: blur(48px);
+  }
+}
+
+.container {
+  @include container;
+  padding: 0 $spacing-4;
+  position: relative;
+  
+  @include sm {
+    padding: 0 $spacing-6;
+  }
+  
+  @include lg {
+    padding: 0 $spacing-8;
+  }
+}
+
+.header {
+  text-align: center;
+  max-width: 768px;
+  margin: 0 auto $spacing-16;
+}
+
+.badge {
+  display: inline-block;
+  padding: $spacing-1 $spacing-4;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  background: rgba($secondary, 0.1);
+  color: $secondary-700;
+  border-radius: $border-radius-full;
+  font-size: $text-sm;
+  font-weight: 500;
+  margin-bottom: $spacing-6;
+}
+
+.title {
+  color: $neutral-dark;
+  margin-bottom: $spacing-6;
+}
+
+.description {
+  color: rgba($neutral-dark, 0.7);
+  font-size: $text-lg;
+  line-height: $leading-relaxed;
+}
+
+.valueProps {
+  display: grid;
+  gap: $spacing-8;
+  
+  @include md {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  position: relative;
+}
+
+.cardInner {
+  position: relative;
+  height: 100%;
+  padding: $spacing-8;
+  background: white;
+  border-radius: $border-radius-3xl;
+  border: 1px solid rgba($neutral-light, 0.5);
+  box-shadow: $shadow-lg;
+  transition: all $transition-normal $transition-ease;
+  
+  &:hover {
+    box-shadow: $shadow-xl;
+    transform: translateY(-4px);
+  }
+}
+
+.cardIcon {
+  display: inline-flex;
+  padding: $spacing-4;
+  border-radius: $border-radius-2xl;
+  margin-bottom: $spacing-6;
+  box-shadow: $shadow-lg;
+  
+  svg {
+    width: 28px;
+    height: 28px;
+    color: white;
+    stroke-width: 1.5;
+  }
+  
+  &.accent {
+    background: linear-gradient(to bottom right, $accent, rgba($accent, 0.7));
+    box-shadow: $shadow-lg, 0 0 0 0 rgba($accent, 0.2);
+  }
+  
+  &.primary {
+    background: linear-gradient(to bottom right, $primary, $primary-600);
+    box-shadow: $shadow-lg, 0 0 0 0 rgba($primary, 0.2);
+  }
+  
+  &.secondary {
+    background: linear-gradient(to bottom right, $secondary, $secondary-600);
+    box-shadow: $shadow-lg, 0 0 0 0 rgba($secondary, 0.2);
+  }
+}
+
+.cardTitle {
+  font-size: $text-xl;
+  font-family: $font-heading;
+  font-weight: 600;
+  color: $neutral-dark;
+  margin-bottom: $spacing-3;
+}
+
+.cardDescription {
+  color: rgba($neutral-dark, 0.7);
+  line-height: $leading-relaxed;
+}
+
+.cardOverlay {
+  position: absolute;
+  inset: 0;
+  border-radius: $border-radius-3xl;
+  opacity: 0;
+  transition: opacity $transition-normal $transition-ease;
+  pointer-events: none;
+  
+  .card:hover & {
+    opacity: 0.1;
+  }
+  
+  &.accent {
+    background: linear-gradient(to bottom right, $accent, rgba($accent, 0.7));
+  }
+  
+  &.primary {
+    background: linear-gradient(to bottom right, $primary, $primary-600);
+  }
+  
+  &.secondary {
+    background: linear-gradient(to bottom right, $secondary, $secondary-600);
+  }
+}
+
+.additionalInfo {
+  margin-top: $spacing-16;
+  padding: $spacing-8;
+  background: linear-gradient(to bottom right, rgba($primary, 0.05), rgba($secondary, 0.05), rgba($accent, 0.05));
+  border-radius: $border-radius-3xl;
+  border: 1px solid rgba($primary, 0.1);
+  
+  @include md {
+    padding: $spacing-12;
+  }
+}
+
+.additionalInfoInner {
+  max-width: 768px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.additionalInfoText {
+  font-size: $text-lg;
+  color: rgba($neutral-dark, 0.8);
+  line-height: $leading-relaxed;
+  
+  .highlight {
+    font-weight: 600;
+    
+    &.primary {
+      color: $primary;
+    }
+    
+    &.secondary {
+      color: $secondary;
+    }
+  }
+}
+

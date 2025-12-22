@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { HardHat, Code2, Brain } from 'lucide-react';
+import styles from './Overview.module.scss';
 
 const valueProps = [
   {
@@ -11,24 +12,21 @@ const valueProps = [
     title: 'Domain Expertise',
     description:
       'Deep understanding of AEC workflows, pain points, and industry standards from years of hands-on engineering experience',
-    gradient: 'from-accent to-accent/70',
-    shadowColor: 'shadow-accent/20',
+    color: 'accent',
   },
   {
     icon: Code2,
     title: 'Technical Leadership',
     description:
       'Proven track record building and scaling software products that power next-generation construction technology',
-    gradient: 'from-primary to-primary-600',
-    shadowColor: 'shadow-primary/20',
+    color: 'primary',
   },
   {
     icon: Brain,
     title: 'AI Integration',
     description:
       'Practical implementation of AI and automation to augment human capabilities and streamline complex processes',
-    gradient: 'from-secondary to-secondary-600',
-    shadowColor: 'shadow-secondary/20',
+    color: 'secondary',
   },
 ];
 
@@ -59,27 +57,23 @@ export function Overview() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden bg-gradient-to-b from-white to-background-off">
+    <section className={styles.section}>
       {/* Background decoration */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-primary/5 to-transparent rounded-full blur-3xl" />
+      <div className={styles.backgroundDecoration}>
+        <div className={styles.glow} />
       </div>
 
-      <div ref={ref} className="container-width px-4 sm:px-6 lg:px-8 relative">
+      <div ref={ref} className={styles.container}>
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className={styles.header}
         >
-          <span className="inline-block px-4 py-1.5 bg-secondary/10 text-secondary-700 rounded-full text-sm font-medium mb-6">
-            Why Tatawur AI
-          </span>
-          <h2 className="text-neutral-dark mb-6">
-            Transforming AEC Workflows
-          </h2>
-          <p className="text-neutral-dark/70 text-lg leading-relaxed">
+          <span className={styles.badge}>Why Tatawur AI</span>
+          <h2 className={styles.title}>Transforming AEC Workflows</h2>
+          <p className={styles.description}>
             Tatawur AI brings together deep domain expertise in structural
             engineering and proven software leadership to help architecture,
             engineering, and construction firms navigate their digital
@@ -92,36 +86,27 @@ export function Overview() {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
-          className="grid md:grid-cols-3 gap-8"
+          className={styles.valueProps}
         >
-          {valueProps.map((prop, index) => (
+          {valueProps.map((prop) => (
             <motion.div
               key={prop.title}
               variants={itemVariants}
-              className="group relative"
+              className={styles.card}
             >
-              <div className="relative h-full p-8 bg-white rounded-3xl border border-neutral-light/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <div className={styles.cardInner}>
                 {/* Icon */}
-                <div
-                  className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${prop.gradient} mb-6 ${prop.shadowColor} shadow-lg`}
-                >
-                  <prop.icon
-                    className="w-7 h-7 text-white"
-                    strokeWidth={1.5}
-                  />
+                <div className={`${styles.cardIcon} ${styles[prop.color]}`}>
+                  <prop.icon strokeWidth={1.5} />
                 </div>
 
                 {/* Content */}
-                <h3 className="text-xl font-heading font-semibold text-neutral-dark mb-3">
-                  {prop.title}
-                </h3>
-                <p className="text-neutral-dark/70 leading-relaxed">
-                  {prop.description}
-                </p>
+                <h3 className={styles.cardTitle}>{prop.title}</h3>
+                <p className={styles.cardDescription}>{prop.description}</p>
 
                 {/* Hover gradient border effect */}
                 <div
-                  className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${prop.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300 pointer-events-none`}
+                  className={`${styles.cardOverlay} ${styles[prop.color]}`}
                 />
               </div>
             </motion.div>
@@ -133,18 +118,18 @@ export function Overview() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-16 p-8 md:p-12 bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5 rounded-3xl border border-primary/10"
+          className={styles.additionalInfo}
         >
-          <div className="max-w-3xl mx-auto text-center">
-            <p className="text-lg text-neutral-dark/80 leading-relaxed">
+          <div className={styles.additionalInfoInner}>
+            <p className={styles.additionalInfoText}>
               With experience scaling software organizations from startup to
               unicorn status and developing production-grade robotic
               construction systems, we understand both the{' '}
-              <span className="text-primary font-semibold">
+              <span className={`${styles.highlight} ${styles.primary}`}>
                 technical possibilities
               </span>{' '}
               and the{' '}
-              <span className="text-secondary font-semibold">
+              <span className={`${styles.highlight} ${styles.secondary}`}>
                 practical constraints
               </span>{' '}
               of the AEC industry.

@@ -3,6 +3,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Mail, MapPin, Linkedin, Send } from 'lucide-react';
+import styles from './Contact.module.scss';
 
 const projectTypes = [
   'Software Strategy',
@@ -64,60 +65,45 @@ ${formData.message}
   };
 
   return (
-    <section
-      id="contact"
-      className="relative py-24 md:py-32 bg-gradient-to-b from-background-off to-primary/5 overflow-hidden"
-    >
+    <section id="contact" className={styles.section}>
       {/* Background decoration */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-secondary/10 via-transparent to-accent/10 rounded-full blur-3xl" />
-        <div
-          className="absolute inset-0 opacity-[0.02]"
-          style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, #0A2463 1px, transparent 0)`,
-            backgroundSize: '32px 32px',
-          }}
-        />
+      <div className={styles.backgroundDecoration}>
+        <div className={styles.glow} />
+        <div className={styles.dots} />
       </div>
 
-      <div ref={ref} className="container-width px-4 sm:px-6 lg:px-8 relative">
+      <div ref={ref} className={styles.container}>
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className={styles.header}
         >
-          <span className="inline-block px-4 py-1.5 bg-secondary/10 text-secondary-700 rounded-full text-sm font-medium mb-6">
-            Get In Touch
-          </span>
-          <h2 className="text-neutral-dark mb-6">
+          <span className={styles.badge}>Get In Touch</span>
+          <h2 className={styles.title}>
             Let&apos;s Build the Future Together
           </h2>
-          <p className="text-neutral-dark/70 text-lg leading-relaxed">
+          <p className={styles.description}>
             Reach out to discuss how Tatawur AI can help transform your
             workflows
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-5 gap-12">
+        <div className={styles.contentGrid}>
           {/* Contact form */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-3"
           >
-            <div className="bg-white p-8 md:p-10 rounded-3xl shadow-xl border border-neutral-light/50">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
+            <div className={styles.formCard}>
+              <form onSubmit={handleSubmit} className={styles.form}>
+                <div className={styles.formRow}>
                   {/* Name */}
-                  <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-sm font-medium text-neutral-dark mb-2"
-                    >
-                      Name <span className="text-red-500">*</span>
+                  <div className={styles.formGroup}>
+                    <label htmlFor="name" className={styles.label}>
+                      Name <span className={styles.required}>*</span>
                     </label>
                     <input
                       type="text"
@@ -126,18 +112,15 @@ ${formData.message}
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl border border-neutral-light focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all bg-background-off/50"
+                      className={styles.input}
                       placeholder="Your name"
                     />
                   </div>
 
                   {/* Email */}
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-neutral-dark mb-2"
-                    >
-                      Email <span className="text-red-500">*</span>
+                  <div className={styles.formGroup}>
+                    <label htmlFor="email" className={styles.label}>
+                      Email <span className={styles.required}>*</span>
                     </label>
                     <input
                       type="email"
@@ -146,19 +129,16 @@ ${formData.message}
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl border border-neutral-light focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all bg-background-off/50"
+                      className={styles.input}
                       placeholder="you@company.com"
                     />
                   </div>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className={styles.formRow}>
                   {/* Company */}
-                  <div>
-                    <label
-                      htmlFor="company"
-                      className="block text-sm font-medium text-neutral-dark mb-2"
-                    >
+                  <div className={styles.formGroup}>
+                    <label htmlFor="company" className={styles.label}>
                       Company
                     </label>
                     <input
@@ -167,17 +147,14 @@ ${formData.message}
                       name="company"
                       value={formData.company}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl border border-neutral-light focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all bg-background-off/50"
+                      className={styles.input}
                       placeholder="Your company"
                     />
                   </div>
 
                   {/* Phone */}
-                  <div>
-                    <label
-                      htmlFor="phone"
-                      className="block text-sm font-medium text-neutral-dark mb-2"
-                    >
+                  <div className={styles.formGroup}>
+                    <label htmlFor="phone" className={styles.label}>
                       Phone
                     </label>
                     <input
@@ -186,18 +163,15 @@ ${formData.message}
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl border border-neutral-light focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all bg-background-off/50"
+                      className={styles.input}
                       placeholder="+1 (555) 000-0000"
                     />
                   </div>
                 </div>
 
                 {/* Project Type */}
-                <div>
-                  <label
-                    htmlFor="projectType"
-                    className="block text-sm font-medium text-neutral-dark mb-2"
-                  >
+                <div className={styles.formGroup}>
+                  <label htmlFor="projectType" className={styles.label}>
                     Project Type
                   </label>
                   <select
@@ -205,7 +179,7 @@ ${formData.message}
                     name="projectType"
                     value={formData.projectType}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-neutral-light focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all bg-background-off/50 appearance-none cursor-pointer"
+                    className={styles.select}
                   >
                     <option value="">Select a project type</option>
                     {projectTypes.map((type) => (
@@ -217,12 +191,9 @@ ${formData.message}
                 </div>
 
                 {/* Message */}
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium text-neutral-dark mb-2"
-                  >
-                    Message <span className="text-red-500">*</span>
+                <div className={styles.formGroup}>
+                  <label htmlFor="message" className={styles.label}>
+                    Message <span className={styles.required}>*</span>
                   </label>
                   <textarea
                     id="message"
@@ -231,7 +202,7 @@ ${formData.message}
                     rows={5}
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-neutral-light focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all bg-background-off/50 resize-none"
+                    className={styles.textarea}
                     placeholder="Tell us about your project or how we can help..."
                   />
                 </div>
@@ -241,13 +212,13 @@ ${formData.message}
                   type="submit"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full px-8 py-4 bg-gradient-to-r from-primary to-primary-700 text-white rounded-xl font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all flex items-center justify-center gap-2"
+                  className={styles.submitButton}
                 >
                   <Send size={18} />
                   Send Message
                 </motion.button>
 
-                <p className="text-xs text-center text-neutral-dark/50 mt-4">
+                <p className={styles.formNote}>
                   Clicking send will open your email client with the message
                   pre-filled
                 </p>
@@ -260,73 +231,61 @@ ${formData.message}
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="lg:col-span-2 space-y-8"
+            className={styles.sidebar}
           >
             {/* Contact details */}
-            <div className="bg-white p-8 rounded-3xl shadow-lg border border-neutral-light/50">
-              <h3 className="text-xl font-heading font-semibold text-neutral-dark mb-6">
-                Contact Information
-              </h3>
+            <div className={styles.infoCard}>
+              <h3 className={styles.infoTitle}>Contact Information</h3>
 
-              <div className="space-y-5">
+              <div className={styles.contactLinks}>
                 <a
                   href="mailto:tarek@tatawur.ai"
-                  className="flex items-center gap-4 p-4 rounded-xl bg-background-off/50 hover:bg-secondary/10 transition-colors group"
+                  className={styles.contactLink}
                 >
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-secondary to-secondary-600 flex items-center justify-center shadow-md">
-                    <Mail size={20} className="text-white" />
+                  <div className={`${styles.contactIcon} ${styles.secondary}`}>
+                    <Mail size={20} />
                   </div>
-                  <div>
-                    <div className="text-sm text-neutral-dark/60">Email</div>
-                    <div className="text-neutral-dark font-medium group-hover:text-secondary transition-colors">
-                      tarek@tatawur.ai
-                    </div>
+                  <div className={styles.contactText}>
+                    <div className={styles.label}>Email</div>
+                    <div className={styles.value}>tarek@tatawur.ai</div>
                   </div>
                 </a>
 
-                <div className="flex items-center gap-4 p-4 rounded-xl bg-background-off/50">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary-600 flex items-center justify-center shadow-md">
-                    <MapPin size={20} className="text-white" />
+                <div className={styles.contactLink}>
+                  <div className={`${styles.contactIcon} ${styles.primary}`}>
+                    <MapPin size={20} />
                   </div>
-                  <div>
-                    <div className="text-sm text-neutral-dark/60">
-                      Location
-                    </div>
-                    <div className="text-neutral-dark font-medium">
-                      Tatawur AI LLC
-                    </div>
+                  <div className={styles.contactText}>
+                    <div className={styles.label}>Location</div>
+                    <div className={styles.value}>Tatawur AI LLC</div>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Social links */}
-            <div className="bg-white p-8 rounded-3xl shadow-lg border border-neutral-light/50">
-              <h3 className="text-xl font-heading font-semibold text-neutral-dark mb-6">
-                Connect
-              </h3>
+            <div className={styles.infoCard}>
+              <h3 className={styles.infoTitle}>Connect</h3>
 
-              <div className="flex gap-4">
+              <div className={styles.socialLinks}>
                 <a
                   href="https://linkedin.com/in/telafifi"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#0077B5] to-[#005885] flex items-center justify-center shadow-lg hover:shadow-xl hover:scale-105 transition-all"
+                  className={`${styles.socialLink} ${styles.linkedin}`}
                 >
-                  <Linkedin size={24} className="text-white" />
+                  <Linkedin size={24} />
                 </a>
               </div>
             </div>
 
             {/* Quick response */}
-            <div className="p-6 bg-gradient-to-br from-accent/10 to-accent/5 rounded-2xl border border-accent/20">
-              <div className="flex items-start gap-3">
-                <div className="w-2 h-2 rounded-full bg-green-500 mt-2 animate-pulse" />
-                <div>
-                  <div className="font-medium text-neutral-dark mb-1">
-                    Quick Response
-                  </div>
-                  <div className="text-sm text-neutral-dark/70">
+            <div className={styles.responseCard}>
+              <div className={styles.responseInner}>
+                <div className={styles.responseDot} />
+                <div className={styles.responseText}>
+                  <div className={styles.responseTitle}>Quick Response</div>
+                  <div className={styles.responseDesc}>
                     We typically respond within 24 hours
                   </div>
                 </div>
