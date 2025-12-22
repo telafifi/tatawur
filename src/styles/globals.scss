@@ -30,7 +30,12 @@ body {
 // TYPOGRAPHY
 // ============================================
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   @include heading-base;
 }
 
@@ -96,7 +101,7 @@ button {
 ::-webkit-scrollbar-thumb {
   background: rgba($primary, 0.3);
   border-radius: $border-radius-full;
-  
+
   &:hover {
     background: rgba($primary, 0.5);
   }
@@ -119,4 +124,3 @@ button {
   outline: none;
   box-shadow: 0 0 0 2px $secondary, 0 0 0 4px white;
 }
-
