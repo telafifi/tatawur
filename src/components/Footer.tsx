@@ -1,7 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Sparkles, Linkedin, ArrowUp } from 'lucide-react';
+import { Linkedin, ArrowUp } from 'lucide-react';
+import { Logo } from './Logo';
 import styles from './Footer.module.scss';
 
 const footerLinks = [
@@ -44,18 +45,9 @@ export function Footer() {
                   e.preventDefault();
                   handleScroll('#home');
                 }}
-                className={styles.logo}
+                className={styles.logoLink}
               >
-                <div className={styles.logoIcon}>
-                  <div className={styles.iconBox}>
-                    <Sparkles />
-                  </div>
-                  <div className={styles.iconGlow} />
-                </div>
-                <div className={styles.logoText}>
-                  <span className={styles.name}>Tatawur AI</span>
-                  <span className={styles.arabic}>تطور</span>
-                </div>
+                <Logo size="large" />
               </a>
 
               <p className={styles.brandDescription}>

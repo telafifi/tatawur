@@ -39,64 +39,8 @@
   justify-content: space-between;
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: $spacing-2;
-}
-
-.logoIcon {
-  position: relative;
-  
-  .iconBox {
-    width: 40px;
-    height: 40px;
-    border-radius: $border-radius-xl;
-    background: linear-gradient(to bottom right, $primary, $secondary, $accent);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: $shadow-lg, 0 0 0 0 rgba($primary, 0.2);
-    
-    svg {
-      width: 20px;
-      height: 20px;
-      color: white;
-    }
-  }
-  
-  .iconGlow {
-    position: absolute;
-    inset: -4px;
-    background: linear-gradient(to bottom right, $primary, $secondary, $accent);
-    border-radius: $border-radius-xl;
-    opacity: 0.3;
-    filter: blur(4px);
-    transition: opacity $transition-normal $transition-ease;
-  }
-  
-  &:hover .iconGlow {
-    opacity: 0.5;
-  }
-}
-
-.logoText {
-  display: flex;
-  flex-direction: column;
-  
-  .name {
-    font-size: $text-xl;
-    font-family: $font-heading;
-    font-weight: 700;
-    color: $primary;
-  }
-  
-  .arabic {
-    font-size: 10px;
-    color: rgba($neutral-dark, 0.6);
-    letter-spacing: 0.05em;
-    margin-top: -4px;
-  }
+.logoLink {
+  display: inline-flex;
 }
 
 .desktopNav {

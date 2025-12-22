@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sparkles } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import { Logo } from './Logo';
 import styles from './Navigation.module.scss';
 
 const navItems = [
@@ -38,7 +39,9 @@ export function Navigation() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: 'easeOut' }}
-        className={`${styles.header} ${isScrolled ? styles.scrolled : styles.transparent}`}
+        className={`${styles.header} ${
+          isScrolled ? styles.scrolled : styles.transparent
+        }`}
       >
         <nav className={styles.nav}>
           <div className={styles.navInner}>
@@ -49,20 +52,11 @@ export function Navigation() {
                 e.preventDefault();
                 handleNavClick('#home');
               }}
-              className={styles.logo}
+              className={styles.logoLink}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <div className={styles.logoIcon}>
-                <div className={styles.iconBox}>
-                  <Sparkles />
-                </div>
-                <div className={styles.iconGlow} />
-              </div>
-              <div className={styles.logoText}>
-                <span className={styles.name}>Tatawur AI</span>
-                <span className={styles.arabic}>تطور</span>
-              </div>
+              <Logo size="medium" />
             </motion.a>
 
             {/* Desktop Navigation */}

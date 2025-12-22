@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Outfit, DM_Sans, JetBrains_Mono } from 'next/font/google'
+import { Outfit, DM_Sans, JetBrains_Mono, Aref_Ruqaa } from 'next/font/google'
 import '@/styles/globals.scss'
 
 const outfit = Outfit({
@@ -21,6 +21,13 @@ const jetbrainsMono = JetBrains_Mono({
   display: 'swap',
   variable: '--font-jetbrains-mono',
   weight: ['400', '500'],
+})
+
+const arefRuqaa = Aref_Ruqaa({
+  subsets: ['arabic'],
+  display: 'swap',
+  variable: '--font-arabic',
+  weight: ['400', '700'],
 })
 
 export const metadata: Metadata = {
@@ -89,7 +96,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${outfit.variable} ${dmSans.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" className={`${outfit.variable} ${dmSans.variable} ${jetbrainsMono.variable} ${arefRuqaa.variable}`}>
       <body>
         {children}
       </body>

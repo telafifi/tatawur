@@ -5,4 +5,5 @@ export { Services } from './Services'
 export { About } from './About'
 export { Contact } from './Contact'
 export { Footer } from './Footer'
+export { Logo } from './Logo'
 

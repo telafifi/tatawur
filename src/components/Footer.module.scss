@@ -72,64 +72,9 @@
   }
 }
 
-.logo {
+.logoLink {
   display: inline-flex;
-  align-items: center;
-  gap: $spacing-3;
   margin-bottom: $spacing-6;
-}
-
-.logoIcon {
-  position: relative;
-  
-  .iconBox {
-    width: 48px;
-    height: 48px;
-    border-radius: $border-radius-xl;
-    background: linear-gradient(to bottom right, $secondary, $secondary-400, $accent);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: $shadow-lg;
-    
-    svg {
-      width: 24px;
-      height: 24px;
-      color: white;
-    }
-  }
-  
-  .iconGlow {
-    position: absolute;
-    inset: -4px;
-    background: linear-gradient(to bottom right, $secondary, $accent);
-    border-radius: $border-radius-xl;
-    opacity: 0.3;
-    filter: blur(4px);
-    transition: opacity $transition-normal $transition-ease;
-  }
-  
-  &:hover .iconGlow {
-    opacity: 0.5;
-  }
-}
-
-.logoText {
-  display: flex;
-  flex-direction: column;
-  
-  .name {
-    font-size: $text-2xl;
-    font-family: $font-heading;
-    font-weight: 700;
-    color: white;
-  }
-  
-  .arabic {
-    font-size: $text-xs;
-    color: rgba(white, 0.6);
-    letter-spacing: 0.05em;
-  }
 }
 
 .brandDescription {
