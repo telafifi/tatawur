@@ -1,122 +1,74 @@
-# Tatawur AI - Marketing Website
+# Tatawur AI
 
-A modern, professional marketing website for Tatawur AI LLC, a consulting firm specializing in software and AI automation solutions for the Architecture, Engineering, and Construction (AEC) industry.
+Marketing website for Tatawur AI LLC — a consulting firm specializing in software and AI automation solutions for the Architecture, Engineering, and Construction (AEC) industry.
 
-**Brand Name**: Tatawur AI (Arabic: تطور - meaning "evolution")
+The name "Tatawur" (تطور) means "evolution" in Arabic.
 
 ## Tech Stack
 
-- **Framework**: Next.js 14 with App Router
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS v3
-- **Animations**: Framer Motion
-- **Icons**: Lucide React
-- **UI Components**: Radix UI primitives
-- **Fonts**: Outfit (headings), DM Sans (body), JetBrains Mono (code)
+- Next.js 14 (App Router)
+- TypeScript
+- SCSS Modules
+- Framer Motion
+- Lucide React
 
-## Getting Started
-
-### Prerequisites
-
-- Node.js 18+ 
-- npm or yarn
-
-### Installation
+## Quick Start
 
 ```bash
-# Install dependencies
-npm install
-
-# Run development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Start production server
-npm start
+bun install
+bun run dev
 ```
 
-### Development
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-The development server runs at `http://localhost:3000`
+## Build
+
+```bash
+bun run build
+bun start
+```
 
 ## Project Structure
 
 ```
 src/
-├── app/
-│   ├── globals.css      # Global styles and Tailwind config
-│   ├── layout.tsx       # Root layout with fonts and metadata
-│   └── page.tsx         # Main marketing page
-├── components/
-│   ├── Navigation.tsx   # Sticky nav with mobile menu
-│   ├── Hero.tsx         # Hero section with animations
-│   ├── Overview.tsx     # Company overview and value props
-│   ├── Services.tsx     # Service offerings grid
-│   ├── About.tsx        # Founder bio and credentials
-│   ├── Contact.tsx      # Contact form with validation
-│   ├── Footer.tsx       # Site footer
-│   └── index.ts         # Component exports
-└── lib/
-    └── utils.ts         # Utility functions (cn helper)
+  app/
+    layout.tsx        Root layout with fonts
+    page.tsx          Main page
+
+  components/
+    Navigation.tsx    Header with mobile menu
+    Hero.tsx          Landing section
+    Overview.tsx      Value propositions
+    Services.tsx      Service offerings
+    About.tsx         Founder information
+    Contact.tsx       Contact details
+    Footer.tsx        Site footer
+    Logo.tsx          Brand logo
+
+  styles/
+    _variables.scss   Design tokens
+    _mixins.scss      Reusable mixins
+    globals.scss      Base styles
+
+  lib/
+    utils.ts          Utilities
 ```
 
-## Features
+## Fonts
 
-- ✅ Fully responsive (mobile-first design)
-- ✅ Smooth scrolling navigation
-- ✅ Animated sections with Framer Motion
-- ✅ SEO optimized with meta tags and Open Graph
-- ✅ Accessible components (keyboard navigation, ARIA)
-- ✅ Contact form with client-side validation
-- ✅ Modern glass-morphism effects
-- ✅ Custom color palette (blues, teals, orange accents)
+- Outfit — headings
+- DM Sans — body text
+- Aref Ruqaa — Arabic calligraphy
 
-## Color Palette
+## Colors
 
-| Color | Hex | Usage |
-|-------|-----|-------|
-| Primary (Deep Blue) | `#0A2463` | Trust, professionalism |
-| Secondary (Teal) | `#3BCEAC` | Innovation, technology |
-| Accent (Warm Orange) | `#FB8B24` | Construction, energy |
-| Neutral Dark | `#2B2D42` | Text, borders |
-| Neutral Light | `#E5E5E5` | Backgrounds, dividers |
-
-## Deployment
-
-### Vercel (Recommended)
-
-```bash
-npm install -g vercel
-vercel
-```
-
-### Netlify
-
-```bash
-npm run build
-# Deploy the .next folder
-```
-
-## Customization
-
-### Adding Images
-
-Replace placeholder images in the components:
-- Hero background
-- Profile photo in About section
-- Service icons (currently using Lucide icons)
-
-### Contact Form Integration
-
-The contact form is ready for integration with:
-- Netlify Forms
-- Formspree
-- Custom API endpoint
-
-Update the `handleSubmit` function in `src/components/Contact.tsx` to connect to your backend.
+| Name      | Hex       |
+| --------- | --------- |
+| Primary   | `#0a2463` |
+| Secondary | `#3bceac` |
+| Accent    | `#fb8b24` |
 
 ## License
 
-© 2025 Tatawur AI LLC. All rights reserved.
+Copyright 2025 Tatawur AI LLC
