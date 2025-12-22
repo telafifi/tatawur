@@ -1,4 +1,4 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from 'tailwindcss';
 
 const config: Config = {
   content: [
@@ -68,7 +68,7 @@ const config: Config = {
         'slide-in-left': 'slideInLeft 0.6s ease-out forwards',
         'slide-in-right': 'slideInRight 0.6s ease-out forwards',
         'scale-in': 'scaleIn 0.5s ease-out forwards',
-        'float': 'float 6s ease-in-out infinite',
+        float: 'float 6s ease-in-out infinite',
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
       keyframes: {
@@ -100,7 +100,6 @@ const config: Config = {
     },
   },
   plugins: [],
-}
+};
 
-export default config
-
+export default config;
