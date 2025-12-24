@@ -38,9 +38,9 @@ export const metadata: Metadata = {
     template: '%s | Tatawur AI',
   },
   icons: {
-    icon: '/favicon.png',
-    shortcut: '/favicon.png',
-    apple: '/favicon.png',
+    icon: '/logo.png',
+    shortcut: '/logo.png',
+    apple: '/logo.png',
   },
   description:
     'Expert consulting services bridging traditional AEC workflows with cutting-edge software and AI solutions. Transform your construction business with Tatawur AI.',
@@ -69,19 +69,19 @@ export const metadata: Metadata = {
       'Expert consulting services bridging traditional AEC workflows with cutting-edge software and AI solutions.',
     images: [
       {
-        url: '/og-image.png',
-        width: 1200,
-        height: 630,
+        url: '/logo.png',
+        width: 500,
+        height: 500,
         alt: 'Tatawur AI - Evolving Construction',
       },
     ],
   },
   twitter: {
-    card: 'summary_large_image',
+    card: 'summary',
     title: 'Tatawur AI | Evolving Construction Through Intelligent Automation',
     description:
       'Expert consulting services bridging traditional AEC workflows with cutting-edge software and AI solutions.',
-    images: ['/og-image.png'],
+    images: ['/logo.png'],
   },
   robots: {
     index: true,
