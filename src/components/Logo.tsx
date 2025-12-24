@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import styles from './Logo.module.scss';
 
 interface LogoProps {
@@ -7,6 +8,12 @@ interface LogoProps {
   showText?: boolean;
   className?: string;
 }
+
+const sizeMap = {
+  small: 40,
+  medium: 44,
+  large: 52,
+};
 
 export function Logo({
   size = 'medium',
@@ -21,12 +28,19 @@ export function Logo({
     .filter(Boolean)
     .join(' ');
 
+  const imageSize = sizeMap[size];
+
   return (
     <div className={logoClasses}>
       <div className={styles.logoIcon}>
-        <div className={styles.iconBox}>
-          <span className={styles.arabicLogo}>تطور</span>
-        </div>
+        <Image
+          src="/logo.png"
+          alt="Tatawur AI"
+          width={imageSize}
+          height={imageSize}
+          className={styles.logoImage}
+          priority
+        />
         <div className={styles.iconGlow} />
       </div>
       {showText && (
